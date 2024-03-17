@@ -7,14 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".Notifications.Notification">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/notification_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/ed1"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="153dp"
-        android:layout_marginEnd="10dp"
-        android:background="#F1EFDE"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="9dp"
+        android:background="@drawable/back_shape"
+        android:elevation="5dp"
         android:ems="10"
         android:hint="@string/enter_title"
         android:inputType="text"
@@ -22,44 +33,114 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/ed2"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:background="#F1EFDE"
+        android:layout_marginEnd="9dp"
+        android:background="@drawable/back_shape"
+        android:elevation="5dp"
         android:ems="10"
+        android:gravity="top"
         android:hint="@string/enter_content"
         android:inputType="text"
+        android:minHeight="80dp"
         android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="5dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed1"
         tools:ignore="RtlSymmetry" />
 
-    <Button
-        android:id="@+id/button1"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/high"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:drawableStart="@drawable/notification_svgrepo_com"
         android:text="High"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/Default"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/flow" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+
+        android:drawableStart="@drawable/notification_svgrepo_com"
+        android:text="Default"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/max"
+        app:layout_constraintStart_toEndOf="@+id/high"
+        app:layout_constraintTop_toTopOf="@+id/flow" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:drawableStart="@drawable/notification_svgrepo_com"
+        android:text="Max"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Default"
+        app:layout_constraintTop_toTopOf="@+id/flow" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/notification_svgrepo_com"
+        android:text="Min"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/high"
+        app:layout_constraintTop_toBottomOf="@+id/high" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/low"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/notification_svgrepo_com"
+        android:text="Low"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/max"
+        app:layout_constraintTop_toBottomOf="@+id/max" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="high,Default,max,min,low"
+        app:flow_horizontalAlign="start"
+        app:flow_horizontalBias="3"
+        app:flow_horizontalGap="10dp"
+        app:flow_horizontalStyle="spread_inside"
+        app:flow_maxElementsWrap="3"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed2" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="85dp"
-        android:text="default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
